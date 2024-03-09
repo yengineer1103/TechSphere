@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "351920021282",
+    "firebase_url": "https://abcd-15a1d-default-rtdb.firebaseio.com",
+    "project_id": "abcd-15a1d",
+    "storage_bucket": "abcd-15a1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:351920021282:android:c6462c8cb398360fbf8f7b",
+        "android_client_info": {
+          "package_name": "com.example.fileshare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0rrc9YlG2wloykkXEb1VI3f1xUZAmtQc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:351920021282:android:957262bc75f0d059bf8f7b",
+        "android_client_info": {
+          "package_name": "com.example.filesharingapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0rrc9YlG2wloykkXEb1VI3f1xUZAmtQc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
