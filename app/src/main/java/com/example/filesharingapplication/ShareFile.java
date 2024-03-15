@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.OpenableColumns;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -203,15 +204,35 @@ public class ShareFile extends AppCompatActivity {
         }
     }
 
-    private void sendSMS(String number, String msg) {
-
+//    private void sendSMS(String number, String msg) {
+//
+//        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//        PendingIntent pi = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
+//
+//        SmsManager sms = SmsManager.getDefault();
+//        sms.sendTextMessage(number, null, msg, pi, null);
+//
+//    }
+private void sendSMS(String number, String msg) {
+    try {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         PendingIntent pi = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
         SmsManager sms = SmsManager.getDefault();
         sms.sendTextMessage(number, null, msg, pi, null);
 
+        Log.d("SMS", "SMS sent successfully"); // Log success
+    } catch (SecurityException e) {
+        // Handle permission-related exceptions
+        e.printStackTrace();
+        Log.e("SMS", "SecurityException: " + e.getMessage()); // Log error
+    } catch (Exception e) {
+        // Handle other exceptions
+        e.printStackTrace();
+        Log.e("SMS", "Exception: " + e.getMessage()); // Log error
     }
+}
+
 
     @SuppressLint("Range")
     public String getFileName(Uri uri) {
