@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.OpenableColumns;
 import android.telephony.SmsManager;
@@ -218,8 +219,13 @@ private void sendSMS(String number, String msg) {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         PendingIntent pi = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
-        SmsManager sms = SmsManager.getDefault();
-        sms.sendTextMessage(number, null, msg, pi, null);
+        SmsManager sms = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.DONUT) {
+            sms = SmsManager.getDefault();
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.DONUT) {
+            sms.sendTextMessage(number, null, msg, pi, null);
+        }
 
         Log.d("SMS", "SMS sent successfully"); // Log success
     } catch (SecurityException e) {
